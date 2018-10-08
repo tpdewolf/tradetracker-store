@@ -3,7 +3,7 @@
  
 	// Constructor //
     
-		function store_widget() {
+		function __construct() {
 			$widgettext = __("Select the items to show in the widget","ttstore");
 			$widget_ops = array( 'classname' => 'store_widget', 'description' => $widgettext ); // Widget Settings
 			$control_ops = array( 'id_base' => 'store_widget' ); // Widget Control Settings
@@ -76,5 +76,7 @@
 
 // End class store_widget
 
-add_action('widgets_init', create_function('', 'return register_widget("store_widget");'));
+add_action('widgets_init', function() {
+	register_widget("store_widget");
+});
 ?>
